@@ -19,7 +19,7 @@ unzip master
 
 cd Foremost-master
 
-cp -v foremost /usr/bin/foremost
+sudo cp -v foremost /usr/bin/foremost
 
 sudo chmod +x /usr/bin/foremost
 
