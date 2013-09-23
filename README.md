@@ -11,9 +11,18 @@ Installation
 
 On Debian/Ubuntu:
 
-cp ~/Downloads/foremost /usr/bin/foremost
+cd ~/Downloads
 
-sudo +x /usr/bin/foremost
+wget https://codeload.github.com/microuser/Foremost/zip/master
+
+unzip master
+
+cd Foremost-master
+
+cp -v foremost /usr/bin/foremost
+
+sudo chmod +x /usr/bin/foremost
+
 
 Useage
 ========
