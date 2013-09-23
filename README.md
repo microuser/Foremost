@@ -8,11 +8,15 @@ Purpose: Mirroring or Safely Merging a file transfer with graphical output of it
 
 Installation
 ========
+
 On Debian/Ubuntu:
+
 cp ~/Downloads/foremost /usr/bin/foremost
+
 sudo +x /usr/bin/foremost
 
 Useage
 ========
 cd ~
+
 foremost A B
