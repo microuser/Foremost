@@ -29,8 +29,8 @@ selectDestinationDirectory() {
     destinationDirectory=`cat $_temp`
 }
 selectBackupMode() {
-    dialog --backtitle "Dialog - RadioList (single select) sample" \
-           --radiolist "tag item to choose" 15 50 8 \
+    dialog --backtitle "Choose rsync file transfer options" \
+           --radiolist "Choose rsync transfer mode" 15 50 8 \
            "Archive Mode" "(Add Files Only)" on\
            "Mirror Mode" "(Delete Unneeded Files)" off\
            "Synchronize" "(Priority Source)" off\
