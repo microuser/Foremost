@@ -1,26 +1,19 @@
 #!/bin/bash
+#Author: microuser@git
+#Email: macro_user@outlook.com
+#Last Updated May 2015
+#Version 1.1.0
 
-#TODO: import that one script i wrote once for auto install.
-#sudo apt-get install pv
-
-##TODO: Loop through extra parameters $3...$n while they exist, as well as acceptance for --delete mode
 SOURCES=$1
 TARGET=$2
 
-
-#Use ionice as another wrapper for parsing output
 RSYNC="ionice -c3 rsync"
-
-#RSYNC_ARGS="-vrltDa --delete --stats --human-readable"
-RSYNC_ARGS="-vrltDa --stats --human-readable"
-
-
-
+RSYNC_ARGS="-vrltDa  --stats --human-readable"
 echo "Traversing the filetree while accumulating information about transfer"
-RSYNC_FILECOUNT=$(${RSYNC} --dry-run ${RSYNC_ARGS} ${SOURCES} ${TARGET}|grep "^File Count:"|awk '{print $5}')
 
-echo "Beginning RSYNC Transfer"
+RSYNC_FILECOUNT=$($RSYNC --dry-run $RSYNC_ARGS $SOURCES $TARGET | grep 'Number of files:' | sed 's/,//g' | awk '{print $4}')
+
+echo "Beginning RSYNC Transfer with $RSYNC_FILECOUNT files"
 ${RSYNC} ${RSYNC_ARGS} ${SOURCES} ${TARGET} | pv -l -e -p -s "$RSYNC_FILECOUNT"
-
-
+exit 0
 
