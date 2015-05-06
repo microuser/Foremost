@@ -4,6 +4,12 @@
 #Last Updated May 2015
 #Version 1.1.0
 
+#Requires:
+#   ionice
+#   rsync
+#   pv
+#   grep, sed, awk
+
 SOURCES=$1
 TARGET=$2
 
